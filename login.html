@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>登录</title>
+    <!-- 引入外部 CSS 文件 -->
+    <link rel="stylesheet" href="css/login.css" />
+    <!-- jQuery 用于切换动画 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- 粒子背景库 -->
+    <script async src="https://npm.elemecdn.com/tzy-blog/lib/js/other/sakura.js"></script></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</head>
+
+<body>
+    <!-- 粒子背景容器 -->
+    <div id="particles-js"></div>
+
+    <!-- 主容器 -->
+    <div class="box">
+
+        <!-- 左侧欢迎封面 -->
+        <div class="coverbox">
+            <h1 class="tm">Welcome</h1>
+            <p class="tm">tianmen15</p>
+            <div class="img1">
+                <img src="css/1234png.png" alt="加载失败" />
+            </div>
+        </div>
+
+        <!-- 注册表单 -->
+        <div class="form-s">
+            <h1 class="good" id="ad">注册</h1>
+            <div class="form-ss">
+                <input type="text" placeholder="用户名" required />
+                <input type="password" placeholder="密码" required />
+                <input type="password" placeholder="确认密码" required />
+                <!-- 同意协议复选框 -->
+                <div class="checkbox-container">
+                    <input type="checkbox" id="agree" required />
+                    <label for="agree">我已阅读并同意 <a href="#" style="color:#07d2e8;">用户协议</a></label>
+                </div>
+
+                <div class="btn-box">
+                    <button type="submit">注册</button>
+                    <p onclick="mySwitch()">已有账号?去登录</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 登录表单 -->
+        <div class="form-d">
+            <h1 class="good" id="ed">登录</h1>
+            <div class="form-dd">
+                <input type="text" placeholder="用户名" required />
+                <input type="password" placeholder="密码" required />
+                <button type="submit">登录</button>
+                <p onclick="mySwitch()">没有账号去注册</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 表单切换逻辑 -->
+    <script>
+        let flag = true; // true 为注册，false 为登录
+        const mySwitch = () => {
+            flag = !flag;
+            if (flag) {
+                // 显示注册状态
+                $(".coverbox").css("transform", "translateX(0%)");
+                $(".coverbox").css("background-color", "#edb3b3");
+                $(".img1 img").attr("src", "css/1234png.png");
+            } else {
+                // 显示登录状态
+                $(".coverbox").css("transform", "translateX(100%)");
+                $(".coverbox").css("background-color", "#15E8B3");
+                $(".img1 img").attr("src", "css/123.jpg");
+            }
+        };
+    </script>
+
+    <!-- 粒子背景配置 -->
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80, // 粒子数量
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": { "value": "#ffffff" },
+                "shape": {
+                    "type": "circle",
+                    "stroke": { "width": 0, "color": "#000000" }
+                },
+                "opacity": { "value": 0.5 },
+                "size": { "value": 3, "random": true },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out"
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "repulse" },
+                    "onclick": { "enable": true, "mode": "push" }
+                },
+                "modes": {
+                    "repulse": { "distance": 100, "duration": 0.4 },
+                    "push": { "particles_nb": 4 }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,241 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 页面高度100% */
+html, body {
+  height: 100%;
+}
+
+/* 设置页面背景为渐变色 + 居中布局 */
+body {
+  display: flex;
+  background: linear-gradient(to right, #2db5db, #12f0ad);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* 🌟 现代感输入框样式 */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 260px;
+  height: 38px;
+  padding: 0 12px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 12px;
+  background-color: #f4f4f4;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05), 
+              0 4px 8px rgba(0, 0, 0, 0.05);
+  font-size: 16px;
+  color: #333;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+/* 🔍 聚焦时高亮 */
+input:focus {
+  background-color: #fff;
+  border: 1px solid #2dcdb2;
+  box-shadow: 0 0 5px rgba(45, 205, 178, 0.5);
+}
+
+/* 占位符样式 */
+input::placeholder {
+  color: #aaa;
+  font-size: 14px;
+  transition: opacity 0.3s ease;
+}
+
+input:focus::placeholder {
+  opacity: 0.3;
+}
+
+/* ✅ 复选框样式 */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #333;
+  gap: 8px;
+}
+
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #12d8a2; /* 染色（现代浏览器支持） */
+  cursor: pointer;
+  margin: 0;
+}
+
+/* 按钮样式 */
+button {
+  display: block;
+  width: 120px;
+  height: 36px;
+  margin: 7px auto;
+  border: none;
+  background: linear-gradient(to right, #16f3ad, #07d2e8);
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 悬停时按钮变亮 */
+button:hover {
+  opacity: 1;
+}
+
+/* 主容器样式 */
+.box {
+  width: 1000px;
+  height: 600px;
+  margin: auto;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  position: relative;
+}
+
+/* 注册和登录表单的通用布局 */
+.form-s,
+.form-d {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -50px;
+}
+
+/* 表单内部布局 */
+.form-dd{
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1px;
+}
+.form-ss {
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1px;
+  margin-top: 30px;
+}
+
+/* 标题样式 */
+.good {
+  height: 220px;
+  line-height: 500px;
+  display: flex;
+}
+
+/* 标题居中样式 */
+.good h1 {
+  text-align: center;
+  letter-spacing: 5px;
+}
+
+/* 登录和注册标题 */
+#ad, #ed {
+  letter-spacing: 5px;
+}
+
+/* 左侧封面样式 */
+.coverbox {
+  position: absolute;
+  background-color: #edb3b3;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid #f4c3c3;
+  box-shadow: 4px 4px 3px #edb3b3;
+  transition: 0.5s ease-in-out;
+  transform: translateX(0%);
+}
+
+/* 欢迎文字样式 */
+.coverbox h1 {
+  color: #ffffff;
+  margin-top: 10px;
+  text-align: center;
+  letter-spacing: 4px;
+  text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.566);
+}
+
+/* 用户名文本样式 */
+.coverbox p {
+  color: #ffffff;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin: 20px 0;
+  font-weight: bold;
+  text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.566);
+}
+
+/* 鼠标悬停下划线 */
+.coverbox p:hover {
+  cursor: pointer;
+  border-bottom: 1px solid #ffffff;
+}
+
+/* 圆形头像容器 */
+.img1 {
+  width: 200px;
+  height: 200px;
+  margin: 20px auto;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 4px 4px 3px #0edada90;
+}
+
+/* 图片大小自适应 + 动画 */
+.img1 img {
+  width: 100%;
+  transition: 0.5s ease-in-out;
+}
+
+/* 粒子背景层样式 */
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background: linear-gradient(to right, #2db5db, #12f0ad);
+}
+
+/* 切换按钮文字通用样式 */
+.form-s p, .form-d p {
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* 鼠标悬停时变亮 */
+.form-s p:hover, .form-d p:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+}
