@@ -1,0 +1,97 @@
+/* 全局初始化样式 */
+* {
+    margin: 0; /* 去除所有元素默认的外边距 */
+    padding: 0; /* 去除所有元素默认的内边距 */
+    box-sizing: border-box; /* 盒模型设置为border-box，方便计算宽高（包含内边距和边框） */
+    font-family: 'Poppins', sans-serif; /* 全局字体设置为 Poppins 字体，优雅且现代 */
+    text-decoration: none; /* 取消所有链接默认的下划线 */
+    color: #1b1717; /* 默认文字颜色，深灰色 */
+    text-shadow: #4a3939 0px 1px 1px; /* 文字阴影，增加层次感和立体感 */
+}
+
+/* 页面整体背景和布局 */
+body {
+    background: linear-gradient(45deg, #2e3192, #1bffff); /* 设置斜向渐变背景色，从深蓝到亮蓝 */
+    height: 800px; /* 页面高度固定为800像素，也可以设置成 100vh 以适应不同屏幕高度 */
+    display: flex; /* 使用弹性盒模型布局 */
+    justify-content: center; /* 水平居中对齐内容 */
+    align-items: center; /* 垂直居中对齐内容 */
+}
+
+/* 导航栏整体容器样式 */
+.box1 {
+    position: relative; /* 定位为相对定位，方便内部绝对定位元素定位参考 */
+    background: linear-gradient(45deg, #c4e61c, #afe314); /* 导航栏背景渐变色，从亮黄到浅绿 */
+    border-radius: 120px; /* 边角圆润，形成胶囊形状 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 添加轻微阴影，使导航栏悬浮感更强 */
+    width: 1000px; /* 导航栏宽度固定1000像素 */
+    display: flex; /* 启用弹性盒模型布局，方便排布导航链接 */
+    padding: 0 40px; /* 左右内边距40像素，内容不贴边 */
+    justify-content: space-around; /* 子元素均匀分布，首尾链接离边框距离相等 */
+    align-items: center; /* 子元素垂直居中 */
+    height: 80px; /* 导航栏高度80像素 */
+    font-size: 30px; /* 导航链接文字大小30像素 */
+    overflow: hidden; /* 防止滑块超出导航栏容器显示 */
+}
+
+/* 滑块背景（动态跟随鼠标移动的背景条） */
+.dh {
+    position: absolute; /* 绝对定位，相对于 .box1 容器 */
+    top: 0; /* 贴紧导航栏顶部 */
+    left: 0; /* 初始左边位置靠左 */
+    width: 95px; /* 初始宽度，匹配第一个导航链接宽度 */
+    height: 100%; /* 高度撑满导航栏 */
+    background: linear-gradient(45deg, #7ceb63, #23e1dec7); /* 绿色渐变半透明背景，作为滑块背景 */
+    border-radius: 80px; /* 滑块边角圆润 */
+    transition: all 0.5s ease-in-out; /* 所有属性变化时，平滑过渡动画，持续0.5秒 */
+    z-index: 0; /* 放在文字下面，避免遮挡文字 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 添加阴影使滑块更立体 */
+}
+
+/* 导航链接样式 */
+nav a {
+    position: relative; /* 相对定位，确保滑块和文字层叠顺序正确 */
+    display: inline-block; /* 行内块元素，既能在一行显示又能设置宽高 */
+    color: #1ee5e8; /* 链接文字颜色，亮蓝色 */
+    text-decoration: none; /* 去除链接默认下划线 */
+    padding: 0 23px; /* 左右内边距23像素，文字不贴边 */
+    z-index: 1; /* 文字放在滑块上方，保证可见 */
+}
+
+/* 以下代码控制鼠标悬停在不同链接时，滑块的移动和大小变化 */
+
+/* 鼠标悬停第1个导航链接时，滑块移动到最左侧，宽度设为900px */
+nav a:nth-of-type(1):hover ~ .dh {
+    left: 0; /* 滑块左边贴左 */
+    width: 900px; /* 宽度900像素 */
+}
+
+/* 鼠标悬停第2个导航链接时，滑块向右移动到对应位置，宽度150px */
+nav a:nth-of-type(2):hover ~ .dh {
+    left: 190px; /* 根据链接位置估算左偏移 */
+    width: 150px; /* 滑块宽度 */
+}
+
+/* 鼠标悬停第3个导航链接时，滑块继续向右偏移，宽度150px */
+nav a:nth-of-type(3):hover ~ .dh {
+    left: 350px; /* 左偏移 */
+    width: 150px; /* 宽度 */
+}
+
+/* 鼠标悬停第4个导航链接时，滑块继续向右，宽度150px */
+nav a:nth-of-type(4):hover ~ .dh {
+    left: 505px;
+    width: 150px;
+}
+
+/* 鼠标悬停第5个导航链接时，滑块继续向右，宽度150px */
+nav a:nth-of-type(5):hover ~ .dh {
+    left: 657px;
+    width: 150px;
+}
+
+/* 鼠标悬停第6个导航链接时，滑块位置调整 */
+nav a:nth-of-type(6):hover ~ .dh {
+    left: 95px;
+    width: 900px; /* 宽度900像素 */
+}

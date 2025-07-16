@@ -1,0 +1,106 @@
+/* 全局初始化样式 */
+* {
+    margin: 0; /* 去除默认外边距 */
+    padding: 0; /* 去除默认内边距 */
+    box-sizing: border-box; /* 设置盒模型为 border-box，包含内边距和边框 */
+    font-family: 'Poppins', sans-serif; /* 设置全局字体 */
+    text-decoration: none; /* 去除链接的下划线 */
+    color: #a0d8f7; /* 霓虹淡蓝，科技感文字 */
+    text-shadow: 0 0 8px #58a6ff, 0 0 20px #2f6eff; /* 文字霓虹蓝光效果 */
+}
+
+/* 设置网页背景和居中布局 */
+body {
+    background: linear-gradient(135deg, #0b0c26, #1e1f4f); /* 深夜蓝紫渐变，酷炫傍晚夜景 */
+    height: 800px; /* 页面高度固定为800像素，可改为100vh适配视口 */
+    display: flex; /* 启用 Flex 布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+
+/* 导航栏容器样式 */
+.box1 {
+    position: relative; /* 作为 .dh 滑块的定位参考 */
+    background: linear-gradient(135deg, #1f1c4d, #3d3b7b); /* 深蓝紫渐变背景，酷感 */
+    border-radius: 120px; /* 圆角导航栏边框 */
+    box-shadow: 0 4px 20px rgba(20, 15, 60, 0.7); /* 深色阴影，增强层次 */
+    width: 1000px; /* 导航栏总宽度 */
+    display: flex; /* 启用 Flex 布局 */
+    padding: 0 40px; /* 左右内边距 */
+    justify-content: space-around; /* 均匀分布子元素 */
+    align-items: center; /* 垂直居中子元素 */
+    height: 80px; /* 导航栏高度 */
+    font-size: 30px; /* 设置文字大小 */
+    overflow: hidden; /* 防止滑块溢出导航栏区域 */
+}
+
+/* 毛玻璃霓虹滑块背景 */
+.dh {
+    position: absolute; /* 绝对定位，相对于 .box1 */
+    top: 0; /* 贴紧顶部 */
+    left: 0; /* 初始位置在最左边 */
+    width: 95px; /* 初始宽度，匹配第一个链接宽度 */
+    height: 100%; /* 高度与导航栏一致 */
+    background: rgba(40, 70, 255, 0.25); /* 半透明电光蓝 */
+    backdrop-filter: blur(14px); /* 毛玻璃模糊效果 */
+    -webkit-backdrop-filter: blur(14px); /* Safari 支持 */
+    border-radius: 80px; /* 圆角滑块 */
+    box-shadow: 0 0 15px #2a56ff, 0 0 30px #2a56ff; /* 霓虹蓝色外发光 */
+    transition: all 0.5s ease-in-out; /* 平滑过渡动画 */
+    z-index: 0; /* 放在文字下方 */
+    will-change: left, width; /* 优化动画性能 */
+}
+
+/* 每个导航链接的样式 */
+nav a {
+    position: relative; /* 相对定位，确保滑块在文字下方 */
+    display: inline-block; /* 行内块 */
+    color: #a0d8f7; /* 霓虹蓝色文字 */
+    text-decoration: none; /* 去除下划线 */
+    padding: 0 23px; /* 左右内边距 */
+    z-index: 1; /* 置于滑块上方，保证文字显示 */
+    transition: color 0.3s ease; /* 文字颜色渐变 */
+}
+
+/* 悬停时文字变为更亮的霓虹蓝 */
+nav a:hover {
+    color: #c0e8ff;
+    text-shadow: 0 0 10px #66aaff, 0 0 20px #4499ff;
+}
+
+/* 悬停时滑块移动及宽度调整 */
+/* left 和 width 数值根据链接实际宽度和间距调整 */
+
+/* 悬停第1个链接：滑块移动到最左 */
+nav a:nth-of-type(1):hover ~ .dh {
+    left: 0;
+    width: 900px; /* 宽度匹配第一个链接 */
+}
+
+/* 悬停第2个链接：滑块向右移动 */
+nav a:nth-of-type(2):hover ~ .dh {
+    left: 190px; /* 根据第一个链接宽度 + 间距估算 */
+    width: 150px;
+}
+
+/* 悬停第3个链接：滑块继续向右并改变宽度 */
+nav a:nth-of-type(3):hover ~ .dh {
+    left: 350px; /* 继续向右偏移 */
+    width: 150px; /* 第三个链接更长，滑块也要更宽 */
+}
+
+/* 悬停第4个链接 */
+nav a:nth-of-type(4):hover ~ .dh {
+    left: 505px;
+    width: 150px;
+}
+
+/* 悬停第5个链接 */
+nav a:nth-of-type(5):hover ~ .dh {
+    left: 657px;
+    width: 150px;
+}
+nav a:nth-of-type(6):hover ~ .dh {
+    left: 95px;
+    width: 900px; /* 第五个链接宽度 */
+}
